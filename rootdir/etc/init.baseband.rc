@@ -28,8 +28,9 @@ service ril-daemon /system/bin/rild
     socket rild stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
     socket rild-debug stream 660 radio system
+    socket rild-cas stream 660  casdrm mmb
     user root
-    group radio cache inet misc audio log readproc wakelock
+    group radio cache inet misc audio log readproc wakelock sdcard_r sdcard_rw vpn system
     onrestart restart cpboot-daemon
 
 on property:persist.sys.cpboot=disable
