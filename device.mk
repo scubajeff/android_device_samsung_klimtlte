@@ -47,7 +47,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libsec-ril.so
     rild.libargs=-d /dev/ttyS0
     ro.telephony.default_network=9
-    ro.ril.telephony.mqanelements=6
+    ro.ril.telephony.mqanelements=4
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
