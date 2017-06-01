@@ -22,7 +22,6 @@ service cpboot-daemon /system/bin/cbd -d -txmm7160 -bh -mh -p 13
     class main
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r shell
-    disabled
 
 service ril-daemon /system/bin/rild
     class main
@@ -32,23 +31,8 @@ service ril-daemon /system/bin/rild
     socket rild-cas stream 660  casdrm mmb
     user root
     group radio cache inet misc audio log readproc wakelock sdcard_r sdcard_rw vpn system
-    disabled
     onrestart restart cpboot-daemon
 
 on property:persist.sys.cpboot=disable
     stop ril-daemon
     stop cpboot-daemon
-
-on post-fs-data
-    # Remove symlinks to avoid issues with migrate after nandroid restores
-    # Will be recreated at end of boot
-    rm -r -d /data/data/com.android.providers.telephony/databases
-    rm -r -d /data/data/com.android.providers.telephony/shared_prefs
-
-    # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
-    symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
-    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
-
-    # Now lets start the telephony services!
-    start cpboot-daemon
-    start ril-daemon
