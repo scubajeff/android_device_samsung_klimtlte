@@ -14,30 +14,40 @@
 # limitations under the License.
 #
 
+LOCAL_PATH := device/samsung/klimtlte
+
 $(call inherit-product, device/samsung/chagall-klimt-common/device.mk)
+
+PRODUCT_PROPERTY_OVERRIDES := \
+    keyguard.no_require_sim=true \
+    ro.com.android.dataroaming=false
 
 PRODUCT_PACKAGES += \
     init.baseband.rc
 
 PRODUCT_COPY_FILES += \
-    device/samsung/klimtlte/audio/audio_policy.conf:system/etc/audio_policy.conf
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
-    device/samsung/klimtlte/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+    $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
+	frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/samsung/klimtlte/overlay
+    $(LOCAL_PATH)/overlay
 
 # Radio (needed for audio controls even on wifi-only)
 PRODUCT_PACKAGES += \
     libril \
     librilutils \
-    rild
+    rild \
+    libxml2 \
+    libprotobuf-cpp-full
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=unknown
@@ -49,6 +59,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=9
     ro.ril.telephony.mqanelements=4
 
-# setup dalvik vm configs.
-$(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
+# setup dalvik vm configs, hwui memory configs.
+#$(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
+
+# Copy vendor proprietary files
 $(call inherit-product, vendor/samsung/klimtlte/klimtlte-vendor.mk)
