@@ -29,8 +29,7 @@ BOARD_CAMERA_FRONT_ROTATION := 270
 BOARD_CAMERA_BACK_ROTATION := 90
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/klimtlte
-TARGET_KERNEL_CONFIG := lineageos_deathly_klimtlte_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_klimtlte_defconfig
 
 # Bootloader
 TARGET_OTA_ASSERT_DEVICE := klimtlte
