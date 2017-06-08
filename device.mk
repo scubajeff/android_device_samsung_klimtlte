@@ -47,7 +47,8 @@ PRODUCT_PACKAGES += \
     librilutils \
     rild \
     libxml2 \
-    libprotobuf-cpp-full
+    libprotobuf-cpp-full \
+    modemloader
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=unknown
