@@ -31,7 +31,7 @@ PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-T705
 PRODUCT_MANUFACTURER := samsung
 
-$(call inherit-product, device/samsung/chagall-klimt-common/device.mk)
+#$(call inherit-product, device/samsung/chagall-klimt-common/device.mk)
 $(call inherit-product, device/samsung/klimtlte/device.mk)
 
 $(call inherit-product-if-exists, vendor/samsung/klimtlte/device-vendor.mk)
@@ -43,4 +43,3 @@ PRODUCT_PACKAGES += \
     OneTimeInitializer \
     Gallery2 \
     OpenDelta
-
