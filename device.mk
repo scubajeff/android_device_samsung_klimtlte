@@ -18,7 +18,7 @@ LOCAL_PATH := device/samsung/klimtlte
 
 $(call inherit-product, device/samsung/chagall-klimt-common/device.mk)
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
     ro.com.android.dataroaming=false
 
@@ -38,7 +38,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
-DEVICE_PACKAGE_OVERLAYS += \
+DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
 
 # Radio (needed for audio controls even on wifi-only)
