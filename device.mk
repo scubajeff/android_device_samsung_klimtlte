@@ -53,6 +53,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=unknown
 
+# Radio
+PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/lib/libsec-ril.so
+    rild.libargs=-d /dev/ttyS0
+	ro.telephony.ril_class=SlteRIL
+    ro.telephony.default_network=9
+    ro.ril.telephony.mqanelements=5
+
 # setup dalvik vm configs, hwui memory configs.
 #$(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)

@@ -1,17 +1,1 @@
-#
-# system.prop for chagall & klimt
-#
-
-# RIL
-rild.libpath=/system/lib/libsec-ril.so
-rild.libargs=-d /dev/ttyS0
-ro.telephony.ril_class=SlteRIL
-ro.telephony.default_network=9
-ro.ril.telephony.mqanelements=5
-
-# Randomly from stock
-ro.ril.gprsclass=10
-ro.ril.hsxpa=1
-ro.sec.fle.encryption=true
-ro.secwvk=220
-ro.securestorage.support=true
+../chagall-klimt-common/system.prop
