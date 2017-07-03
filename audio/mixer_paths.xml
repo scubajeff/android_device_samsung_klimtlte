@@ -442,6 +442,13 @@
   </path>
 
   <!-- Abstract devices -->
+  <path name="bt-sco-headset">
+      <path name="bt-sco-hs" />
+  </path>
+
+  <path name="bt-sco-mic">
+      <path name="bt-sco-hs-mic" />
+  </path>
 
   <path name="speaker-and-headphones">
       <path name="speaker" />
