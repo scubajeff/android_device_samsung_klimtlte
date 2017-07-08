@@ -14,22 +14,19 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/klimtlte
-
 $(call inherit-product, device/samsung/chagall-klimt-common/device.mk)
 
 PRODUCT_PROPERTY_OVERRIDES := \
-    keyguard.no_require_sim=true \
-    ro.com.android.dataroaming=false
+    keyguard.no_require_sim=true
 
 PRODUCT_PACKAGES += \
     init.baseband.rc
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
+    device/samsung/klimtlte/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+    device/samsung/klimtlte/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -38,8 +35,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
-DEVICE_PACKAGE_OVERLAYS := \
-    $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    device/samsung/klimtlte/overlay
 
 # Radio (needed for audio controls even on wifi-only)
 PRODUCT_PACKAGES += \
@@ -68,3 +65,6 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui
 
 # Copy vendor proprietary files
 $(call inherit-product, vendor/samsung/klimtlte/klimtlte-vendor.mk)
+
+# Import the common tree changes
+include device/samsung/chagall-klimt-common/device.mk

@@ -20,27 +20,26 @@
 # Get the long list of APNs
 PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
+# Surpress data roaming
+PRODUCT_PROPERTY_OVERRIDES := \
+	ro.com.android.dataroaming=false
+
 # Inherit from the common Open Source product configuration
 ##$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 ##$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-PRODUCT_NAME := klimtltexx
+PRODUCT_NAME := aosp_klimtlte
 PRODUCT_DEVICE := klimtlte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-T705
 PRODUCT_MANUFACTURER := samsung
 
-$(call inherit-product, device/samsung/chagall-klimt-common/device.mk)
+#$(call inherit-product, device/samsung/chagall-klimt-common/device.mk)
 $(call inherit-product, device/samsung/klimtlte/device.mk)
 
 $(call inherit-product-if-exists, vendor/samsung/klimtlte/device-vendor.mk)
 
-PRODUCT_NAME := aosp_klimtlte
-
 PRODUCT_PACKAGES += \
     Launcher3 \
-    OneTimeInitializer \
-    Gallery2 \
-    OpenDelta
-
+    Gallery2
