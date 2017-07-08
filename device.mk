@@ -14,13 +14,14 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/samsung/chagall-klimt-common/device.mk)
-
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true
 
 PRODUCT_PACKAGES += \
-    init.baseband.rc
+	init.universal5420.rc \
+    init.baseband.rc \
+	init.target.rc \
+	ueventd.universal5420.rc
 
 PRODUCT_COPY_FILES += \
     device/samsung/klimtlte/audio/audio_policy.conf:system/etc/audio_policy.conf
@@ -37,6 +38,10 @@ PRODUCT_COPY_FILES += \
 
 DEVICE_PACKAGE_OVERLAYS += \
     device/samsung/klimtlte/overlay
+
+# Shim
+PRODUCT_PACKAGES += \
+    libshim
 
 # Radio (needed for audio controls even on wifi-only)
 PRODUCT_PACKAGES += \
