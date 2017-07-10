@@ -20,6 +20,10 @@
 # Get the long list of APNs
 PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
+# Get our audio_effects
+PRODUCT_COPY_FILES += \
+    device/samsung/klimtlte/audio/audio_effects.conf:system/etc/audio_effects.conf
+
 # Surpress data roaming
 PRODUCT_PROPERTY_OVERRIDES := \
 	ro.com.android.dataroaming=false
