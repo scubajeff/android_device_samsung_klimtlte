@@ -14,15 +14,16 @@
 # limitations under the License.
 #
 
-TARGET_PATH := device/samsung/klimtlte
-
 include device/samsung/chagall-klimt-common/BoardConfig.mk
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/klimtlte/bluetooth
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
 # hardware/samsung/ril
 BOARD_MODEM_TYPE := xmm7260
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
+BOARD_RIL_CLASS := ../../../device/samsung/klimtlte/ril
 BOARD_MODEM_NEEDS_VIDEO_CALL_FIELD := true
 
 BOARD_CAMERA_FRONT_ROTATION := 270
@@ -34,14 +35,6 @@ TARGET_KERNEL_CONFIG := lineageos_deathly_klimtlte_defconfig
 
 # Bootloader
 TARGET_OTA_ASSERT_DEVICE := klimtlte
-
-BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2506096640
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 12629049344
-BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_FLASH_BLOCK_SIZE := 4096
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
