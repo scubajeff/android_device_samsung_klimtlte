@@ -43,7 +43,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     libshim
 
-# Radio (needed for audio controls even on wifi-only)
+# Radio
 PRODUCT_PACKAGES += \
     libril \
     librilutils \
