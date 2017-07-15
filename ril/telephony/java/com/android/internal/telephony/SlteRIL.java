@@ -129,6 +129,7 @@ public class SlteRIL extends RIL {
         send(rr);
     }
 
+/*
     @Override
     public void
     getIccCardStatus(Message result) {
@@ -144,6 +145,7 @@ public class SlteRIL extends RIL {
           send(rr);
         }
     }
+
 
     public void setDataAllowed(boolean allowed, Message result) {
         Rlog.v(RILJ_LOG_TAG, "XMM7260RIL: setDataAllowed");
@@ -200,6 +202,7 @@ public class SlteRIL extends RIL {
 
         send(rr);
     }
+*/
 
     @Override
     protected Object
