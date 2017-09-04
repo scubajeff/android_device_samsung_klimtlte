@@ -38,7 +38,7 @@ PRODUCT_COPY_FILES += \
 
 # SPN names for Greater China
 PRODUCT_COPY_FILES += \
-	device/sample/etc/spn-conf.xml:system/etc/spn-conf.xml
+	device/samsung/klimtlte/rootdir/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 DEVICE_PACKAGE_OVERLAYS += \
     device/samsung/klimtlte/overlay
