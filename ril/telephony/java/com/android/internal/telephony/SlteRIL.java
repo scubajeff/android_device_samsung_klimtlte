@@ -458,6 +458,7 @@ public class SlteRIL extends RIL {
             case 1038: // RIL_UNSOL_TETHERED_MODE_STATE_CHANGED
             case 1039: // RIL_UNSOL_DATA_NETWORK_STATE_CHANGED
             case 1042: // RIL_UNSOL_QOS_STATE_CHANGED_IND
+            case RIL_UNSOL_STK_CALL_CONTROL_RESULT:
             case RIL_UNSOL_DEVICE_READY_NOTI: /* Registrant notification */
             case RIL_UNSOL_SIM_PB_READY: /* Registrant notification */
                 Rlog.v(RILJ_LOG_TAG,
