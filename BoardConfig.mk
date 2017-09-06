@@ -20,10 +20,10 @@ include device/samsung/chagall-klimt-common/BoardConfig.mk
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/klimtlte/bluetooth
 
 # RIL
-BOARD_PROVIDES_LIBRIL := true
+#BOARD_PROVIDES_LIBRIL := true
 # hardware/samsung/ril
 BOARD_MODEM_TYPE := xmm7260
-BOARD_RIL_CLASS := ../../../device/samsung/klimtlte/ril
+#BOARD_RIL_CLASS := ../../../device/samsung/klimtlte/ril
 BOARD_MODEM_NEEDS_VIDEO_CALL_FIELD := true
 
 BOARD_CAMERA_FRONT_ROTATION := 270
