@@ -5,9 +5,9 @@ on init
 
     symlink  /sys/devices/platform/s5p-ehci/ehci_power /dev/ehci_power
 
-#    write /sys/module/modem_link_pm_xmm626x/parameters/l2_delay 500
-#    write /sys/module/modem_link_pm_xmm626x/parameters/hub_delay 500
-#    write /sys/module/modem_link_device_hsic_4ncm/parameters/tx_qlen 50
+    write /sys/module/modem_link_pm_xmm626x/parameters/l2_delay 500
+    write /sys/module/modem_link_pm_xmm626x/parameters/hub_delay 500
+    write /sys/module/modem_link_device_hsic_4ncm/parameters/tx_qlen 50
 
 on fs
     chown radio system /efs
@@ -27,22 +27,16 @@ service cpboot-daemon /system/bin/cbd -d -txmm7160 -bh -mh -p 13
     class main
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r shell
-    disabled
 
 service ril-daemon /system/bin/rild
     class main
     socket rild stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
     socket rild-debug stream 660 radio system
-#    socket rild-cas stream 660  casdrm mmb
+    socket rild-cas stream 660  casdrm mmb
     user root
     group radio cache inet misc audio log readproc wakelock sdcard_r sdcard_rw vpn system
     onrestart restart cpboot-daemon
-    disabled
-
-on property:ro.modemloader.done=1
-    start cpboot-daemon
-    start ril-daemon
 
 on property:persist.sys.cpboot=disable
     stop ril-daemon
