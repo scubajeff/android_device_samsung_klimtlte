@@ -566,12 +566,6 @@ service fingerprintd /system/bin/fingerprintd
     user system
     group input
 
-# SENSOR FRAMEWORK : starts fingerprintService
-service vcsFPService /system/bin/vcsFPService
-    class late_start
-    user system
-    group system
-
 # Bluetooth LE 2 wired Test
 service LE_dut_cmd_on /system/bin/bttestintf enable
     group bluetooth net_bt_admin
